@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+    <head>
+        {% include 'eventapp/base/header.html' %}
+    {% block extrahead %}
+
+  {% endblock extrahead %}
+    </head>
+  <body>
+    <!-- Header Area wrapper Starts -->
+    <header id="header-wrap">
+           {% include 'eventapp/base/navbar.html' %}
+        {% block carousel %}
+
+    {% endblock  %}
+
+          </header>
+    <!-- Header Area wrapper End -->
+
+{% block content %}
+
+    {% endblock  %}
+    </body>
+</html>

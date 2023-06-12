@@ -9,7 +9,10 @@ def dashboard(request):
         "welcome": "Welcome to your dashboard"
     }
    # return render(request, 'authentification/dashboard.html', context=context)
-    return render(request, 'base/base.html', context=context)
+    return render(request, 'dashboard/base/dashboard.html', context=context)
+
+def home(request):
+    return render(request, 'dashboard/base/home.html')
 
 '''@login_required
 def dashboard(request):

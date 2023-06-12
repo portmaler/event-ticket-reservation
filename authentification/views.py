@@ -12,7 +12,7 @@ def dashboard(request):
         "welcome": "Welcome to your dashboard"
     }
    # return render(request, 'authentification/dashboard.html', context=context)
-    return render(request, 'base.html', context=context)'''
+    return render(request, 'home.html', context=context)'''
 
 
 def register(request):

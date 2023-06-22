@@ -1,9 +1,8 @@
-from django.contrib.auth.models import User
 from django import forms
 # from .models import Profile
 from django.contrib.auth.forms import AuthenticationForm, UsernameField
-from .models import UserRegistrationModel
 from django.contrib.auth.forms import PasswordResetForm
+from django.contrib.auth.models import User
 
 
 class UserRegistration(forms.ModelForm):

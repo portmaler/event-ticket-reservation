@@ -1,21 +1,31 @@
 {% load static %}
 <!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <title>Delete Event</title>
+  <style>
 
-<title>Grand - Event and Conference Template</title>
+      footer {
+        padding: 10px 20px;
+        background: #666;
+        color: white;
+      }
 
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" type="text/css" href="{% static 'eventapp/assets/css/bootstrap.min.css' %}">
-<!-- Icon -->
-<link rel="stylesheet" type="text/css" href="{% static 'eventapp/assets/fonts/line-icons.css' %}">
-<!-- Slicknav -->
-<link rel="stylesheet" type="text/css" href="{% static 'eventapp/assets/css/slicknav.css' %}">
-<!-- Nivo Lightbox -->
-<link rel="stylesheet" type="text/css" href="{% static 'eventapp/assets/css/nivo-lightbox.css' %}">
-<!-- Animate -->
-<link rel="stylesheet" type="text/css" href="{% static 'eventapp/assets/css/animate.css' %}">
-<!-- Main Style -->
-<link rel="stylesheet" type="text/css" href="{% static 'eventapp/assets/css/main.css' %}">
-<!-- Responsive Style -->
-<link rel="stylesheet" type="text/css" href="{% static 'eventapp/assets/css/responsive.css' %}">
+
+    /* Override Bootstrap styles for the carousel */
+    .carousel {
+      height: calc(100vh - 300px); /* Set the height to occupy the remaining viewport height minus 100px for the header */
+    }
+    .carousel-inner {
+      height: 100%; /* Set the height to 100% of the parent container */
+    }
+    .carousel-item {
+      height: 100%; /* Set the height to 100% of the parent container */
+    }
+     .carousel-item img {
+      object-fit: cover; /* Resize the image to cover the entire carousel item without being stretched or cut off */
+      height: 100%; /* Set the height to 100% of the carousel item */
+      width: 100%; /* Set the width to 100% of the carousel item */
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="{% static 'eventapp/assets/css/card-css.css' %}">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">

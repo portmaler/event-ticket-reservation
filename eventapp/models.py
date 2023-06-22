@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 from django.urls import reverse
 
 
@@ -9,8 +9,10 @@ class Event(models.Model):
     date = models.DateField()
     time = models.TimeField()
     location = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='event_images/')
+    image = models.ImageField(default='default/blankimage.jpg', upload_to='event_images/')
     is_deleted = models.BooleanField(default=False)
+    is_confirmed = models.BooleanField(default=False)
+    tickets_available = models.IntegerField(default=100)
 
     def __str__(self):
         return self.title
@@ -19,6 +21,7 @@ class Event(models.Model):
         # Custom delete method to set the is_deleted flag instead of actually deleting the event
         self.is_deleted = True
         self.save()
+
 
 class Ticket(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
@@ -30,6 +33,7 @@ class Ticket(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.event.title}"
 
+
 class Reservation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     tickets = models.ManyToManyField(Ticket)
@@ -39,21 +43,6 @@ class Reservation(models.Model):
     def __str__(self):
         return f"{self.user.username}'s Reservation - {self.reservation_date}"
 
-class EventUserWishList(models.Model):
-    event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    created_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='eventwishlist_created_user')
-    updated_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='eventwishlist_updated_user')
-    created_date = models.DateField(auto_now_add=True)
-    updated_date = models.DateField(auto_now_add=True)
-    status_choice = (
-        ('disabled', 'Disabled'),
-        ('active', 'Active'),
-        ('deleted', 'Deleted'),
-        ('blocked', 'Blocked'),
-        ('completed', 'Completed'),
-    )
-    status = models.CharField(choices=status_choice, max_length=10)
 
 class EventCategory(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -78,7 +67,3 @@ class EventCategory(models.Model):
 
     def get_absolute_url(self):
         return reverse('event-category-list')
-
-class EventImage(models.Model):
-    event = models.OneToOneField(Event, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='event_image/')

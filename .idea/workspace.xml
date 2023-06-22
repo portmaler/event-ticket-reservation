@@ -4,7 +4,72 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5a842d4-5cb3-41e0-bf18-f7600be15fce" name="Changes" comment="" />
+    <list default="true" id="d5a842d4-5cb3-41e0-bf18-f7600be15fce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/eventreservation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/eventreservation.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentification/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentification/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentification/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentification/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentification/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentification/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/templates/dashboard/base/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/base/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/eventapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/css/animate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/css/colors/blue.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/css/main.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/css/nivo-lightbox.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/css/responsive.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/css/responsive.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/css/slicknav.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/js/contact-form-script.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/js/form-validator.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/js/jquery-min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/js/jquery.countdown.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/js/jquery.easing.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/js/jquery.nav.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/js/jquery.slicknav.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/js/map.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/js/nivo-lightbox.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/js/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/js/wow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/_about.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/_blog.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/_carousel.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/_contact.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/_countdown.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/_footer.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/_global.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/_navbar.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/_portfolio.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/_pricing.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/_schedule.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/_service.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/_shortcode.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/_team.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/_testimonial.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/colors/_presets.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/main.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/static/eventapp/assets/scss/responsive.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/templates/eventapp/base/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/eventapp/templates/eventapp/base/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/templates/eventapp/base/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/eventapp/templates/eventapp/base/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/templates/eventapp/base/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/eventapp/templates/eventapp/base/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/templates/eventapp/base/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/eventapp/templates/eventapp/base/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/templates/eventapp/base/js.html" beforeDir="false" afterPath="$PROJECT_DIR$/eventapp/templates/eventapp/base/js.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventapp/templates/eventapp/base/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/eventapp/templates/eventapp/base/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventreservation/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/eventreservation/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventreservation/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/eventreservation/urls.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,28 +82,36 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2R4LqHAQlI5UipWmRoUYIY65u3U" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/hp/Desktop/yassir/fac/master/1 year/semestre 2/python/project/django/eventreservation/eventreservation/eventapp/static&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/hp/Desktop/yassir/fac/master/1 year/semestre 2/python/project/django/eventreservation/eventreservation/dashboard/templates/dashboard/manager",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\hp\Desktop\yassir\fac\master\1 year\semestre 2\python\project\django\eventreservation\eventreservation\eventapp\static" />
+      <recent name="C:\Users\hp\Desktop\yassir\fac\master\1 year\semestre 2\python\project\django\eventreservation\eventreservation\dashboard\templates\dashboard\manager" />
+      <recent name="C:\Users\hp\Desktop\yassir\fac\master\1 year\semestre 2\python\project\django\eventreservation\eventreservation\static\default" />
+      <recent name="C:\Users\hp\Desktop\yassir\fac\master\1 year\semestre 2\python\project\django\eventreservation\eventreservation\eventapp\static\eventapp\assets\js" />
+      <recent name="C:\Users\hp\Desktop\yassir\fac\master\1 year\semestre 2\python\project\django\eventreservation\eventreservation\eventapp\static\eventapp\assets" />
+      <recent name="C:\Users\hp\Desktop\yassir\fac\master\1 year\semestre 2\python\project\django\eventreservation\eventreservation\eventapp\static\eventapp\assets\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hp\Desktop\yassir\fac\master\1 year\semestre 2\python\project\django\eventreservation\eventreservation\eventapp\static\eventapp\assets\css" />
+      <recent name="C:\Users\hp\Desktop\yassir\fac\master\1 year\semestre 2\python\project\django\eventreservation\eventreservation\eventapp\static\eventapp\assets\js" />
       <recent name="C:\Users\hp\Desktop\yassir\fac\master\1 year\semestre 2\python\project\django\eventreservation\eventreservation\eventapp\static\eventapp" />
       <recent name="C:\Users\hp\Desktop\yassir\fac\master\1 year\semestre 2\python\project\django\eventreservation\eventreservation\eventapp\templates\eventapp" />
       <recent name="C:\Users\hp\Desktop\yassir\fac\master\1 year\semestre 2\python\project\django\eventreservation\eventreservation\dashboard\static\dashboard" />
-      <recent name="C:\Users\hp\Desktop\yassir\fac\master\1 year\semestre 2\python\project\django\eventreservation\eventreservation\dashboard\templates\dashboard" />
-      <recent name="C:\Users\hp\Desktop\yassir\fac\master\1 year\semestre 2\python\project\django\eventreservation\eventreservation\eventapp\static\assets" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

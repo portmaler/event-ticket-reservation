@@ -1,25 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="en">
-  {% load static %}
     <head>
         {% include 'eventapp/base/header.html' %}
-    {% block extrahead %}
-
-  {% endblock extrahead %}
     </head>
-  <body>
+  <body style="background-color:#702FB5 ">
     <!-- Header Area wrapper Starts -->
-    <header id="header-wrap">
-           {% include 'eventapp/base/navbar.html' %}
-        {% block carousel %}
 
-    {% endblock  %}
+        {% include 'eventapp/base/navbar.html' %}
 
-          </header>
-    <!-- Header Area wrapper End -->
 
-{% block content %}
 
-    {% endblock  %}
+
+    {% block content %}
+
+    {% endblock content %}
+
+      {% include 'eventapp/base/footer.html' %}
     </body>
 </html>

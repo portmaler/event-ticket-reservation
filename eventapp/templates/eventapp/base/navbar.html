@@ -1,98 +1,40 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg fixed-top scrolling-navbar">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
-                    aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                <span class="icon-menu"></span>
-                <span class="icon-menu"></span>
-                <span class="icon-menu"></span>
-            </button>
-            <a href="index.html" class="navbar-brand"><img src="{% static 'eventapp/assets/img/logo.png' %}" alt=""></a>
-        </div>
-        <div class="collapse navbar-collapse" id="main-navbar">
-            <ul class="navbar-nav mr-auto w-100 justify-content-end">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#header-wrap">
-                        Home
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">
-                        About
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#schedules">
-                        schedules
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#team">
-                        Speakers
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#gallery">
-                        Gallery
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#faq">
-                        Faq
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#sponsors">
-                        Sponsors
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#pricing">
-                        pricing
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#google-map-area">
-                        Contact
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+<!--     navbar   ----------------------->
+<div style="background-color:#702FB5">
+  <center><a class="navbar-brand text-center" href="#">Navbar</a></center>
+</div>
 
-    <!-- Mobile Menu Start -->
-    <ul class="mobile-menu">
-        <li>
-            <a class="page-scrool" href="#header-wrap">Home</a>
-        </li>
-        <li>
-            <a class="page-scrool" href="#about">About</a>
-        </li>
-        <li>
-            <a class="page-scroll" href="#schedules">schedules</a>
-        </li>
-        <li>
-            <a class="page-scroll" href="#team">Speakers</a>
-        </li>
-        <li>
-            <a class="page-scroll" href="#gallery">Gallery</a>
-        </li>
-        <li>
-            <a class="page-scroll" href="#faq">Faq</a>
-        </li>
-        <li>
-            <a class="page-scroll" href="#sponsors">Sponsors</a>
-        </li>
-        <li>
-            <a class="page-scroll" href="#pricing">pricing</a>
-        </li>
-        <li>
-            <a class="page-scroll" href="#google-map-area">Contact</a>
-        </li>
+
+<nav  style="background-color:#702FB5"  class="navbar navbar-expand-lg navbar-dark">
+
+    <div class="container d-flex justify-content-between align-items-center">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">ACCUEIL <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">CONCERT</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">THEATRE</a>
+      </li>
+          <li class="nav-item">
+        <a class="nav-link" href="#">FORMATION</a>
+      </li>
     </ul>
-    <!-- Mobile Menu End -->
-
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Search</button>
+    </form>
+  </div>
+          </div>
 </nav>
+
+<!--     /navbar   ----------------------->

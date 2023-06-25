@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     "eventapp",
     "authentification",
     "dashboard",
-    'bootstrap4'
+    'bootstrap4',
+    'corsheaders'
 ]
 # "apps.eventapp.apps.EventappConfig",
 #   "apps.authentification.apps.AuthentificationConfig",
@@ -53,6 +54,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = "eventreservation.urls"
@@ -151,7 +153,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGIN_REDIRECT_URL = 'dashboard:index'
+LOGIN_REDIRECT_URL = 'dashboard:home'
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
@@ -160,3 +162,5 @@ LOGOUT_URL = 'logout'
 
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
+
+CORS_ORIGIN_ALLOW_ALL = True

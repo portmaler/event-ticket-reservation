@@ -1,0 +1,16 @@
+{% extends 'eventapp/base/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-white">Ticket Confirmation</h2>
+      <p class="text-white">You have successfully reserved {{ ticket.quantity }} ticket(s) for the event "{{ event.title }}".</p>
+      <p class="text-white">Total Price: ${{ ticket.price }}</p>
+      <p class="text-white">Please proceed to the payment to complete your reservation.</p>
+      <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends 'eventapp/base/base.html' %}
+{% load static %}
+
+
+
+<!--         slideer *------------------->
+{% block content %}
+
+<div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+  <ol class="carousel-indicators">
+    {% for event in recent_events %}
+      <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+    {% endfor %}
+  </ol>
+  <div class="carousel-inner">
+    {% for event in recent_events %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <div class="carousel-caption d-flex flex-column align-items-center">
+          <h3>{{ event.title }}</h3>
+          <a href="#" class="custom-button">Get Ticket</a>
+        </div>
+        <img class="d-block w-100" src="{{ event.image.url }}" alt="{{ event.title }}">
+      </div>
+    {% endfor %}
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+<!--___________________-   /slider -----
+
+<div  class="container py-4 ">
+  <div class="card-columns ">
+    {% for event in events %}
+    <div class="card">
+      <div class="cardcontainer">
+        <div class="photo">
+          <img src="{{ event.image.url}}">
+          <div class="photos">Photos</div>
+        </div>
+        <div class="content">
+          <p class="txt4">{{ event.title }}</p>
+          <p class="txt5">{{ event.subtitle }}</p>
+          <p class="txt2">{{ event.description }}</p>
+        </div>
+        <div class="footer">
+          <p>        <a href="#" class="custom-button">Get Ticket</a><a id="heart"><span class="like"><i class="fab fa-gratipay"></i> {{ticket.price }}</span></a></p>
+          <p class="txt3"><i class="far fa-clock"></i>{{ event.date }} <span class="comments"><i class="fas fa-comments"></i>tickets disp : {{event.tickets_available}}</span></p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+-->
+<div class="container py-4 m-8">
+  <div class="row">
+    {% for event in events %}
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="cardcontainer">
+          <div class="photo">
+            <img src="{{ event.image.url }}">
+<div class="photos">{{ event.category }}</div>
+          </div>
+          <div class="content">
+            <p class="txt4">{{ event.title }}</p>
+            <p class="txt5">{{ event.subtitle }}</p>
+            <p class="txt2">{{ event.description }}</p>
+          </div>
+          <div class="footer">
+            <p>
+              <a href="{% url 'eventapp:event-detail' event.id %}" class="custom-button">Get Ticket</a>
+              <a id="heart"><span class="like"><i class="fab fa-gratipay"></i> {{ ticket.price }}</span></a>
+            </p>
+            <p class="txt3">
+              <i class="far fa-clock"></i>{{ event.date }}
+              <span class="comments">
+                <i class="fas fa-comments"></i>tickets disp: {{ event.tickets_available }}
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% endblock %}
+

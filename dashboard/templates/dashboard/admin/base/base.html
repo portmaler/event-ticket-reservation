@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include 'dashboard/admin/base/header.html' %}
+    </head>
+    <body class="sb-nav-fixed">
+         <!-- Navbar -->
+  {% include 'dashboard/admin/base/navbar.html' %}
+          <!-- /.navbar -->
+        <div id="layoutSidenav">
+              {% include 'dashboard/admin/base/sidebar.html' %}
+            <div id="layoutSidenav_content"  style="background-color:  #dde9f8 ">
+                <main>
+                   {% block content %}
+                    {% endblock content %}
+                </main>
+                {% include 'dashboard/admin/base/footer.html' %}
+            </div>
+        </div>
+         {% include 'dashboard/admin/base/js.html' %}
+    </body>
+</html>

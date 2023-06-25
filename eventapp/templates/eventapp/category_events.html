@@ -1,0 +1,38 @@
+{% extends 'eventapp/base/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-4 m-8">
+  <div class="row">
+    {% for event in events %}
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="cardcontainer">
+          <div class="photo">
+            <img src="{{ event.image.url }}">
+            <div class="photos">{{ event.category }}</div>
+          </div>
+          <div class="content">
+            <p class="txt4">{{ event.title }}</p>
+            <p class="txt5">{{ event.subtitle }}</p>
+            <p class="txt2">{{ event.description }}</p>
+          </div>
+          <div class="footer">
+            <p>
+              <a href="{% url 'eventapp:event-detail' event.id %}" class="custom-button">Get Ticket</a>
+              <a id="heart"><span class="like"><i class="fab fa-gratipay"></i> {{ ticket.price }}</span></a>
+            </p>
+            <p class="txt3">
+              <i class="far fa-clock"></i>{{ event.date }}
+              <span class="comments">
+                <i class="fas fa-comments"></i>tickets disp: {{ event.tickets_available }}
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

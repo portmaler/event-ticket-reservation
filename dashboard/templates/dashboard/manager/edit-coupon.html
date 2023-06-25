@@ -1,0 +1,49 @@
+<!-- edit-coupon.html -->
+{% extends 'dashboard/manager/base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container py-5">
+  <h1>Edit Coupon</h1>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="coupon">Select Coupon:</label>
+      <select class="form-control" id="coupon" name="coupon">
+        <option value="" selected disabled>Select Coupon</option>
+        {% for coupon in coupons %}
+        <option value="{{ coupon.id }}" data-code="{{ coupon.code }}" data-amount="{{ coupon.discount_amount }}">{{ coupon.code }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="code">Coupon Code:</label>
+      <input type="text" class="form-control" id="code" name="code" required>
+    </div>
+    <div class="form-group">
+      <label for="discount_amount">Discount Amount:</label>
+      <input type="number" step="0.01" class="form-control" id="discount_amount" name="discount_amount" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Edit Coupon</button>
+  </form>
+</div>
+
+<script>
+  // Get the necessary elements
+  const couponSelect = document.getElementById('coupon');
+  const codeInput = document.getElementById('code');
+  const amountInput = document.getElementById('discount_amount');
+
+  // Add event listener to the select element
+  couponSelect.addEventListener('change', function() {
+    // Get the selected option
+    const selectedOption = couponSelect.options[couponSelect.selectedIndex];
+
+    // Set the code and amount inputs based on the selected option
+    codeInput.value = selectedOption.dataset.code;
+    amountInput.value = selectedOption.dataset.amount;
+  });
+</script>
+
+{% endblock %}

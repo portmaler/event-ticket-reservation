@@ -1,8 +1,10 @@
+from django.contrib.auth.views import LoginView
 from django.http import request
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegistration, UserEditForm
+from django.urls import reverse_lazy
 
+from .forms import UserRegistration, UserEditForm
 
 # Create your views here.
 
@@ -48,3 +50,11 @@ def edit(request):
         'form': user_form,
     }
     return render(request, 'authentification/edit.html', context=context)
+
+
+class CustomLoginView(LoginView):
+    template_name = 'registration/login.html'
+
+    def get_success_url(self):
+        # Customize the redirect URL here
+        return reverse_lazy('eventapp:home')

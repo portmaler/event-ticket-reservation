@@ -24,3 +24,28 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+function deleteEvent(eventId) {
+    if (confirm("Are you sure you want to delete this event?")) {
+        // Send the AJAX request to delete the event
+        $.ajax({
+            url: "{% url 'eventapp:event-delete' 0 %}".replace('0', eventId),
+            type: "POST",
+            dataType: "json",
+            data: {
+                csrfmiddlewaretoken: "{{ csrf_token }}"
+            },
+            success: function (response) {
+                // Handle the success response
+                console.log("Event deleted successfully");
+                // Perform any necessary actions after successful deletion
+            },
+            error: function (xhr, errmsg, err) {
+                // Handle the error response
+                console.log("Error deleting event");
+                // Perform any necessary error handling
+            }
+        });
+    }
+}
+

@@ -1,0 +1,54 @@
+{% extends 'eventapp/base/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-white py-4">{{ event.title }}</h2>
+    <div class="row">
+        <div class="col-md-7">
+            <img src="{{ event.image.url }}" class="img-fluid" alt="Event Image">
+            <h3 class="text-white py-4">Description</h3>
+            <p class="text-white">{{ event.description }}</p>
+        </div>
+        <div class="col-md-5">
+            <div class="container" style="background-color: #E7DFDD;">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <center>
+                            <h2>Date: {{ event.date }} A {{ event.time }}</h2>
+                            <h3>A: {{ event.location }}</h3>
+                        </center>
+                        <p>Have a coupon</p>
+                        <input id="code" class="form-control" placeholder="Enter your coupon" name="coupon_code">
+                        <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                            <div class="col">Tickets</div>
+                            <div class="col input-group">
+                                <input type="number" id="quantity" name="quantity" min="1" max="{{ event.tickets_available }}" class="form-control" value="1" required>
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                        <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                            <div class="col">TOTAL PRICE</div>
+                            <div id="total-price" class="col text-right" style="color: #4717F6; font-size: 20px;">{{ticket.price|floatformat:2 }} DH</div>
+                        </div>
+                        <div class="row py-4 d-flex align-items-center justify-content-center">
+                            <button type="submit" class="custom-button col justify-content-center col-md-6 text-center">Get Ticket</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('quantity').addEventListener('input', function() {
+        var quantity = parseInt(this.value);
+        var price = parseFloat("{{ ticket.price }}");
+        var totalPrice = quantity * price;
+        document.getElementById('total-price').innerText = totalPrice.toFixed(2) + ' DH';
+    });
+</script>
+
+{% endblock %}

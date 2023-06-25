@@ -3,12 +3,37 @@
  <title>Delete Event</title>
   <style>
 
-      footer {
-        padding: 10px 20px;
-        background: #666;
-        color: white;
-      }
+  .custom-button {
+  background-color: #f7b449;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+}
 
+.custom-button:hover {
+ color: white;
+  background-color: #8293e3;
+}
+
+       footer {
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+  }
+
+ body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Set the main content area to grow and occupy remaining vertical space */
+  .main-content {
+    flex-grow: 1;
+  }
 
     /* Override Bootstrap styles for the carousel */
     .carousel {

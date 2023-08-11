@@ -19,12 +19,15 @@ Event Ticket Reservation is a Django-based web application that allows users to 
 ## Screenshots
 
 Event App: 
+
 ![Event App Screenshot](screenshots/eventsapp.png)
 
 Dashboard Admin:
+
 ![Dashboard Admin Screenshot](screenshots/dashboardadmin.png)
 
 Dashboard Manager:
+
 ![Dashboard Manager Screenshot](screenshots/dashboardmanager.png)
 
 
@@ -80,4 +83,4 @@ Contributions are welcome! Fork the repository, create a new branch, and submit 
 
 ## License
 
-This project is licensed under the [MIT License](./LICENCE).
+This project is licensed under the [MIT License](./LICENSE).

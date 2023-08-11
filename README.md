@@ -35,3 +35,35 @@ Event Ticket Reservation is a Django-based web application that allows users to 
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
+   
+3. **Install Dependencies:**
+   ```bash
+   pip install -r requirements.txt
+
+4. **Apply Migrations:**
+   ```bash
+   python manage.py migrate
+
+5. **Create a Superuser:**
+   ```bash
+   python manage.py createsuperuser
+
+
+## Usage
+1. **Run the Development Server:**
+   ```bash
+   python manage.py runserver
+
+2. **Access the Application:**
+
+Open your web browser and go to http://127.0.0.1:8000/.
+
+3. **Login and Explore:**
+
+Log in using your superuser account. Create events, reserve tickets, and manage events from the admin dashboard.
+
+## Contributing
+Contributions are welcome! Fork the repository, create a new branch, and submit a pull request.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.

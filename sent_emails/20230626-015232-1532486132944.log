@@ -1,0 +1,13 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: jeunange@gmail.com
+Date: Mon, 26 Jun 2023 00:52:32 -0000
+Message-ID: <168774075277.19268.538621196781522742@PORTRMALER>
+
+Someone asked for password reset for email jeunange@gmail.com.Follow the Link below
+http://127.0.0.1:8000{% url "authentification:password_reset_confirm"
+uidb64=uid token=token %}
+-------------------------------------------------------------------------------

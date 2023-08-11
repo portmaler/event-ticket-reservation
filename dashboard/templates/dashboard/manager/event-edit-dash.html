@@ -1,0 +1,61 @@
+{% extends "dashboard/manager/base/base.html" %}
+{% block content %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Edit Event</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{% url 'dashboard:manager-dashboard' %}">Dashboard</a></li>
+        <li class="breadcrumb-item active">Edit Event</li>
+    </ol>
+    <div class="card mb-4">
+        <div class="card-body">
+            <form id="edit-event-form" method="POST" action="{% url 'dashboard:event-edit' event.id %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="event-select">Select Event</label>
+                    <select id="event-select" class="form-select" onchange="displayEventDetails(this)">
+                        <option value="" selected disabled>Select an event</option>
+                        {% for event in events %}
+                        <option value="{{ event.id }}">{{ event.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="title-input">Title</label>
+                    <input type="text" class="form-control" id="title-input" name="title" value="{{ event.title }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="date-input">Date</label>
+                    <input type="date" class="form-control" id="date-input" name="date" value="{{ event.date }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="time-input">Time</label>
+                    <input type="time" class="form-control" id="time-input" name="time" value="{{ event.time }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="location-input">Location</label>
+                    <input type="text" class="form-control" id="location-input" name="location" value="{{ event.location }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="category-input">Category</label>
+                    <input type="text" class="form-control" id="category-input" name="category" value="{{ event.category }}" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function displayEventDetails(selectElement) {
+            const selectedEventId = selectElement.value;
+            if (selectedEventId) {
+                const event = JSON.parse('{{ events_json|escapejs }}')[selectedEventId];
+                document.getElementById('title-input').value = event.title;
+                document.getElementById('date-input').value = event.date;
+                document.getElementById('time-input').value = event.time;
+                document.getElementById('location-input').value = event.location;
+                document.getElementById('category-input').value = event.category;
+            }
+        }
+    </script>
+</div>
+{% endblock content %}

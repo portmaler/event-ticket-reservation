@@ -1,16 +1,15 @@
 from django.contrib import messages
-from django.shortcuts import render, redirect, get_object_or_404
-
+from django.shortcuts import render, get_object_or_404, redirect
 from eventapp.models import Event, Ticket, Reservation, Coupon
 
 
 def allevents(request):
     # Retrieve all events from the database
-    events = Event.objects.all()
+    events = Event.objects.filter(is_confirmed=True).all()
     recent_events = Event.objects.order_by('-date')[:3]
 
     # Pass the events to the template context
-    context = {'events': events,'recent_events': recent_events}
+    context = {'events': events, 'recent_events': recent_events}
 
     # Render the template with the events
     return render(request, 'eventapp/home.html', context)
@@ -27,9 +26,6 @@ def allevents(request):
     }
     return render(request, 'eventapp/event_detail.html', context)"""
 
-
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Event, Ticket, Reservation
 
 def event_detail(request, event_id):
     event = get_object_or_404(Event, id=event_id)
@@ -50,18 +46,18 @@ def event_detail(request, event_id):
             event.tickets_available -= quantity
             reservation.save()
             event.save()
-            return redirect('ticket-confirmation', ticket_id=ticket.id)
+            return redirect('eventapp:ticket-confirmation', ticket_id=ticket.id)
         else:
             # Handle insufficient tickets error
             error_message = 'Insufficient tickets available'
-            return render(request, 'eventapp/event_detail.html', {'event': event, 'ticket': ticket, 'error_message': error_message})
+            return render(request, 'eventapp/event_detail.html',
+                          {'event': event, 'ticket': ticket, 'error_message': error_message})
 
     context = {
         'event': event,
         'ticket': ticket,
     }
     return render(request, 'eventapp/event_detail.html', context)
-
 
 
 def ticket_confirmation(request, ticket_id):
@@ -76,13 +72,11 @@ def ticket_confirmation(request, ticket_id):
 
 def category_events(request, category):
     # Retrieve events based on the clicked category
-    events = Event.objects.filter(category=category)
+    events = Event.objects.filter(is_confirmed=True,category=category)
     context = {
         'events': events,
     }
     return render(request, 'eventapp/category_events.html', context)
-
-
 
 
 def event_edit(request, event_id):

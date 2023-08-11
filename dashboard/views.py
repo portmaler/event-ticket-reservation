@@ -1,27 +1,38 @@
+import json
+from datetime import datetime
+
 from django.contrib import messages
-from django.contrib.postgres import serializers
+from django.contrib.auth.forms import UserChangeForm
 from django.http import JsonResponse
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
-from dashboard.forms import EventForm, UserForm
-from eventapp.models import Ticket, Coupon
+from dashboard.forms import EventForm, UserForm, TicketForm
+from eventapp.models import Ticket, Coupon, Reservation
+from eventapp.models import Event
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+
 
 # ************** Admin
-
-
-from django.contrib.auth.models import User
-from eventapp.models import Event
-from django.shortcuts import render
 
 
 @login_required(login_url='authentification:login')
 def admin_dashboard(request):
     users = User.objects.filter(is_staff=True)
-    events = Event.objects.filter(user__is_staff=True)
+    events = Event.objects.filter(user__is_staff=True, is_confirmed=False)
+    tickets_sold = Reservation.objects.count()
+    total_events = Event.objects.filter(user__is_staff=True).count()
+    current_datetime = datetime.now()
+    upcoming_tickets = Ticket.objects.filter(event__user__is_staff=True, reservation_date__gt=current_datetime).count()
+    expired_tickets = Ticket.objects.filter(event__user__is_staff=True, reservation_date__lt=current_datetime).count()
 
     context = {
         'users': users,
-        'events': events
+        'events': events,
+        'tickets_sold': tickets_sold,
+        'total_events': total_events,
+        'upcoming_tickets': upcoming_tickets,
+        'expired_tickets': expired_tickets
     }
 
     return render(request, 'dashboard/admin/dashboard.html', context)
@@ -41,47 +52,29 @@ def add_user(request):
     return render(request, 'dashboard/admin/add-user.html', context)
 
 
-
 @login_required(login_url='authentification:login')
 def edit_user(request, user_id):
     user = get_object_or_404(User, id=user_id)
+    users = User.objects.exclude(id=user_id)
 
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        is_staff = request.POST['is_staff']
+    if request.method == "POST":
+        is_staff = request.POST.get('is_staff') == '1'  # Check if the radio button value is '1'
 
-        user.username = username
-        user.set_password(password)
-        user.is_staff = bool(int(is_staff))
-        user.save()
+        form = UserChangeForm(request.POST, instance=user)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.is_staff = is_staff
+            user.email = form.cleaned_data['email']  # Update the email field
+            user.save()
+            return redirect('dashboard:admin-dashboard')
+    else:
+        form = UserChangeForm(instance=user, initial={'email': user.email})  # Set initial email value
 
-        return redirect('dashboard:admin-dashboard')
-
-    context = {'user': user}
+    context = {
+        'form': form,
+        'users': users
+    }
     return render(request, 'dashboard/admin/edit-user.html', context)
-
-@login_required(login_url='authentification:login')
-def edit_user(request, user_id):
-    user = get_object_or_404(User, id=user_id)
-    users = User.objects.all()  # Fetch all users
-    users_json = serializers.serialize('json', users)  # Serialize users data to JSON
-
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        is_staff = request.POST['is_staff']
-
-        user.username = username
-        user.set_password(password)
-        user.is_staff = bool(int(is_staff))
-        user.save()
-
-        return redirect('dashboard:admin-dashboard')
-
-    context = {'users': users, 'users_json': users_json}
-    return render(request, 'dashboard/admin/edit-user.html', context)
-
 
 
 @login_required(login_url='authentification:login')
@@ -90,9 +83,9 @@ def confirm_event(request, event_id):
         event = get_object_or_404(Event, pk=event_id)
         event.is_confirmed = True
         event.save()
-        return JsonResponse({'status': 'success'})
+        return redirect('dashboard:admin-dashboard')
     else:
-        return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
+        return render(request, 'dashboard/admin/dashboard.html')
 
 
 # ************** Manager
@@ -107,9 +100,10 @@ def dashboard(request):
 
 @login_required(login_url='authentification:login')
 def manager_dashboard(request):
-    # return render(request, 'authentification/dashboard.html', context=context)
-    events = Event.objects.all()
-    return render(request, 'dashboard/manager/dashboard.html', {'events': events})
+    user = request.user
+    events = Event.objects.filter(user=user)
+    tickets = Ticket.objects.filter(event__in=events)
+    return render(request, 'dashboard/manager/dashboard.html', {'events': events, 'tickets': tickets})
 
 
 @login_required(login_url='authentification:login')
@@ -152,6 +146,25 @@ def add_ticket(request):
 
 
 @login_required(login_url='authentification:login')
+def ticket_edit(request, ticket_id):
+    ticket = get_object_or_404(Ticket, id=ticket_id)
+    if request.method == 'POST':
+        form = TicketForm(request.POST, instance=ticket)
+        if form.is_valid():
+            form.save()
+            return redirect(
+                'dashboard:manager-dashboard')  # Replace 'dashboard:ticket-list' with your actual URL name for the ticket list page
+    else:
+        form = TicketForm(instance=ticket)
+
+    context = {
+        'form': form,
+        'ticket': ticket,
+    }
+    return render(request, 'dashboard/manager/edit-ticket.html', context)
+
+
+@login_required(login_url='authentification:login')
 def event_edit(request, event_id):
     event = Event.objects.get(id=event_id)
 
@@ -169,6 +182,31 @@ def event_edit(request, event_id):
         'form': form,
     }
     return render(request, 'dashboard/manager/edit-event.html', context)
+
+
+@login_required(login_url='authentification:login')
+def event_edit_dash(request, event_id):
+    event = get_object_or_404(Event, id=event_id, user=request.user)
+
+    if request.method == 'POST':
+        # Process the form data
+        form = EventForm(request.POST, instance=event)
+        if form.is_valid():
+            form.save()
+            return JsonResponse({'success': True})
+        else:
+            return JsonResponse({'success': False, 'errors': form.errors})
+
+    # GET request
+    form = EventForm(instance=event)
+    events = Event.objects.filter(user=request.user).values('id', 'title', 'date', 'time', 'location', 'category')
+
+    context = {
+        'form': form,
+        'events_json': json.dumps({event['id']: event for event in events}),
+    }
+
+    return render(request, 'dashboard/manager/event-edit-dash.html', context)
 
 
 @login_required(login_url='authentification:login')

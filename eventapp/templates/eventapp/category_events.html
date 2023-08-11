@@ -15,7 +15,14 @@
           <div class="content">
             <p class="txt4">{{ event.title }}</p>
             <p class="txt5">{{ event.subtitle }}</p>
-            <p class="txt2">{{ event.description }}</p>
+        {% if event.description|length > 30 %}
+      <p class="txt2">{{ event.description|slice:":70" }}...</p>
+    {% else %}
+      <p class="txt2">{{ event.description }}</p>
+    {% endif %}
+    {% if event.description|length > 30 %}
+      <a href="#" class="read-more">Read More</a>
+    {% endif %}
           </div>
           <div class="footer">
             <p>

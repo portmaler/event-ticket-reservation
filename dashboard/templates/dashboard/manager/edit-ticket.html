@@ -1,0 +1,50 @@
+{% extends "dashboard/manager/base/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!-- Ticket Event -->
+        <div class="form-group">
+            <label for="id_event">Event</label>
+            <select name="event" id="id_event" class="form-control" required>
+                <option value="" disabled>Select Event</option>
+                {% for event in events %}
+                <option value="{{ event.id }}" {% if ticket.event.id == event.id %}selected{% endif %}>{{ event.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- User -->
+        <div class="form-group">
+            <label for="id_user">User</label>
+            <input type="text" name="user" id="id_user" class="form-control" required value="{{ ticket.user.username }}" />
+        </div>
+
+        <!-- Quantity -->
+        <div class="form-group">
+            <label for="id_quantity">Quantity</label>
+            <input type="number" name="quantity" id="id_quantity" class="form-control" required value="{{ ticket.quantity }}" />
+        </div>
+
+        <!-- Price -->
+        <div class="form-group">
+            <label for="id_price">Price</label>
+            <input type="number" name="price" id="id_price" class="form-control" required value="{{ ticket.price }}" />
+        </div>
+
+
+
+        <!-- Coupon -->
+        <div class="form-group">
+            <label for="id_coupon">Coupon</label>
+            <input type="text" name="coupon" id="id_coupon" class="form-control" required value="{{ ticket.coupon }}" />
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Edit Ticket</button>
+    </form>
+</div>
+{% endblock content %}

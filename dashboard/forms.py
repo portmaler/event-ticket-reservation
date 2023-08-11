@@ -1,4 +1,4 @@
-from eventapp.models import Event
+from eventapp.models import Event, Ticket
 from django import forms
 from django.contrib.auth.models import User
 
@@ -16,5 +16,11 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', 'is_staff']
+
+
+class TicketForm(forms.ModelForm):
+    class Meta:
+        model = Ticket
+        fields = ['event', 'user', 'quantity', 'price',  'coupon']
 
 

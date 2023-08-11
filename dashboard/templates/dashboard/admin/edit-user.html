@@ -2,65 +2,33 @@
 {% load static %}
 
 {% block content %}
-
 <div class="container py-5">
   <h1>Edit User</h1>
-  <form method="POST">
+  <form method="POST" id="edit-user-form">
     {% csrf_token %}
     <div class="form-group">
       <label for="users">Select User:</label>
       <select class="form-control" id="users" name="users">
-        <option value="" selected disabled>Select User</option>
+        <option value="{{ form.instance.id }}" selected>{{ form.instance.username }}</option>
         {% for user in users %}
           <option value="{{ user.id }}">{{ user.username }}</option>
         {% endfor %}
       </select>
     </div>
     <div class="form-group">
-      <label for="username">Username:</label>
-      <input type="text" class="form-control" id="username" name="username" required>
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email" value="{{ form.initial.email }}" required>
     </div>
-    <div class="form-group">
-  <label for="email">Email:</label>
-  <input type="text" class="form-control" id="email" name="email" required>
-</div>
     <div class="form-group">
       <label for="is_staff">Is Staff:</label><br>
       <label class="radio-inline">
-        <input type="radio" name="is_staff" value="1"> Yes
+        <input type="radio" name="is_staff" value="1" {% if form.instance.is_staff %}checked{% endif %}> Yes
       </label>
       <label class="radio-inline">
-        <input type="radio" name="is_staff" value="0" checked> No
+        <input type="radio" name="is_staff" value="0" {% if not form.instance.is_staff %}checked{% endif %}> No
       </label>
     </div>
     <button type="submit" class="btn btn-primary">Edit User</button>
   </form>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  $(document).ready(function() {
-    // Function to update the input fields based on selected user
-    function updateUserFields() {
-      var selectedUserId = $("#users").val();
-      var selectedUser = users.find(user => user.id == selectedUserId);
-
-      if (selectedUser) {
-        $("#username").val(selectedUser.username);
-      } else {
-        $("#username").val("");
-      }
-    }
-
-    // Fetch users data from backend and populate select options
-    var users = JSON.parse('{{ users_json|escapejs }}');
-    updateUserFields();
-
-    // Event listener for select change
-    $("#users").on("change", function() {
-      updateUserFields();
-    });
-  });
-</script>
-
 {% endblock %}

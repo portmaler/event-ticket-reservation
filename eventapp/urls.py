@@ -9,3 +9,5 @@ urlpatterns = [
     path('ticket-confirmation/<int:ticket_id>/', ticket_confirmation, name='ticket-confirmation'),
     path('category/<str:category>/', category_events, name='category-events'),
 ]
+
+

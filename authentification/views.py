@@ -56,5 +56,14 @@ class CustomLoginView(LoginView):
     template_name = 'registration/login.html'
 
     def get_success_url(self):
-        # Customize the redirect URL here
-        return reverse_lazy('eventapp:home')
+        user = self.request.user
+
+        if user.is_superuser:
+            # Redirect superuser to the admin dashboard
+            return reverse_lazy('dashboard:admin-dashboard')
+        elif user.is_staff:
+            # Redirect staff members to the manager dashboard
+            return reverse_lazy('dashboard:manager-dashboard')
+        else:
+            # Redirect regular users to the home page
+            return reverse_lazy('eventapp:home')

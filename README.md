@@ -5,8 +5,9 @@ This is a web application for event ticket reservation built using Django.
 ## Table of Contents
 
 - [Introduction](#introduction)
+- [Screenshots](#Screenshots)
 - [Features](#features)
-- - [Installation](#installation)
+- [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
@@ -14,6 +15,18 @@ This is a web application for event ticket reservation built using Django.
 ## Introduction
 
 Event Ticket Reservation is a Django-based web application that allows users to reserve tickets for various events. The application offers a user-friendly interface for both event organizers and attendees.
+
+## Screenshots
+
+Event App: 
+![Event App Screenshot](screenshots/eventsapp.png)
+
+Dashboard Admin:
+![Dashboard Admin Screenshot](screenshots/dashboardadmin.png)
+
+Dashboard Manager:
+![Dashboard Manager Screenshot](screenshots/dashboardmanager.png)
+
 
 ## Features
 
@@ -66,4 +79,5 @@ Log in using your superuser account. Create events, reserve tickets, and manage 
 Contributions are welcome! Fork the repository, create a new branch, and submit a pull request.
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+
+This project is licensed under the [MIT License](./LICENCE).
